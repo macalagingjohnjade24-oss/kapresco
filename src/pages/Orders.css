@@ -1,0 +1,224 @@
+/* Orders + Favorites pages */
+
+.orders__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: var(--s-6);
+}
+
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.order-card {
+  background: #fff;
+  border: 1px solid var(--tan-200);
+  border-radius: var(--r-card);
+  overflow: hidden;
+  transition: box-shadow var(--transition);
+}
+
+.order-card:hover {
+  box-shadow: var(--shadow-card);
+}
+
+.order-card__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto auto auto;
+  align-items: center;
+  gap: var(--s-5);
+  width: 100%;
+  padding: var(--s-5);
+  text-align: left;
+}
+
+.order-card__ref,
+.order-card__date {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--brown-700);
+  min-width: 0;
+}
+
+.order-card__ref-label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.order-card__date {
+  font-weight: 600;
+}
+
+.order-card__total {
+  font-size: var(--fs-lg);
+  font-weight: 800;
+  color: var(--brown-700);
+  white-space: nowrap;
+}
+
+.order-card__chevron {
+  transition: transform var(--transition);
+  flex-shrink: 0;
+}
+
+.order-card__chevron.is-open {
+  transform: rotate(180deg);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+}
+
+.status-pill--pending {
+  color: var(--brown-700);
+  background: var(--gold-400);
+}
+
+.status-pill--done {
+  color: var(--success);
+  background: var(--success-bg);
+}
+
+/* ---- Expanded body ---- */
+
+.order-card__body {
+  padding: 0 var(--s-5) var(--s-5);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--s-5);
+}
+
+.order-card__items {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-card__items li {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: var(--s-4);
+  padding-block: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.order-card__items img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: var(--r-input);
+}
+
+.order-card__line-price {
+  min-width: 84px;
+  text-align: right;
+  font-weight: 700;
+  color: var(--brown-700);
+}
+
+.order-card__foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-5);
+  padding-top: var(--s-4);
+}
+
+.order-card__foot p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.order-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-4);
+}
+
+.orders__note {
+  margin-top: var(--s-6);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.orders__confirm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3);
+  margin-left: auto;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--brown-700);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 991px) {
+  .order-card__head {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "ref   status"
+      "date  status"
+      "total chevron";
+    row-gap: var(--s-3);
+  }
+  .order-card__ref {
+    grid-area: ref;
+  }
+  .order-card__date {
+    grid-area: date;
+  }
+  .order-card__head .status-pill {
+    grid-area: status;
+    justify-self: end;
+  }
+  .order-card__total {
+    grid-area: total;
+  }
+  .order-card__chevron {
+    grid-area: chevron;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 600px) {
+  .order-card__head,
+  .order-card__body {
+    padding: var(--s-4);
+  }
+  .order-card__items li {
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+    row-gap: 4px;
+  }
+  .order-card__line-price {
+    grid-column: 2 / -1;
+    min-width: 0;
+    text-align: left;
+  }
+  .order-card__actions .btn {
+    width: 100%;
+  }
+}

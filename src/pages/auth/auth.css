@@ -1,0 +1,217 @@
+/* ==========================================================================
+   Auth forms (Login, Sign Up, Forgot password, Reset password)
+   ========================================================================== */
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.auth-form__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  flex-wrap: wrap;
+}
+
+.auth-form__link {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--brown-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.auth-form__link:hover {
+  color: var(--gold-500);
+}
+
+.auth-form__demo {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 14px;
+  font-size: var(--fs-xs);
+  line-height: 1.45;
+  color: var(--text-muted);
+  background: var(--cream-50);
+  border-radius: var(--r-input);
+}
+
+.auth-form__demo svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.auth-alert {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  border-radius: var(--r-input);
+}
+
+.auth-alert--success {
+  color: var(--success);
+  background: var(--success-bg);
+}
+
+.auth-alert--error {
+  color: var(--error);
+  background: var(--error-bg);
+}
+
+/* ---- Password strength meter (Sign Up) ---- */
+
+.strength {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.strength__bars {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.strength__bar {
+  height: 4px;
+  border-radius: var(--r-pill);
+  background: var(--border-subtle);
+  transition: background-color var(--transition);
+}
+
+.strength__bar.is-on-weak {
+  background: var(--error);
+}
+
+.strength__bar.is-on-medium {
+  background: var(--gold-500);
+}
+
+.strength__bar.is-on-strong {
+  background: var(--success);
+}
+
+.strength__label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* ---- Success / info panel (Forgot password, Account created) ---- */
+
+.auth-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-4);
+  text-align: center;
+  padding: var(--s-5) 0;
+}
+
+.auth-panel__badge {
+  display: grid;
+  place-items: center;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: var(--success-bg);
+}
+
+.auth-panel__badge--gold {
+  background: var(--cream-50);
+  border: 1px solid var(--tan-200);
+}
+
+.auth-panel__title {
+  font-size: var(--fs-h3);
+  font-weight: 800;
+  color: var(--brown-700);
+}
+
+.auth-panel__body {
+  max-width: 44ch;
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.auth-panel__note {
+  width: 100%;
+  padding: var(--s-4);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  color: var(--brown-700);
+  background: var(--cream-50);
+  border: 1px solid var(--tan-200);
+  border-radius: var(--r-input);
+}
+
+.auth-panel__actions {
+  display: grid;
+  gap: var(--s-3);
+  width: 100%;
+  margin-top: var(--s-2);
+}
+
+/* ---- Account created progress strip ---- */
+
+.onboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  width: 100%;
+}
+
+.onboard__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  text-align: left;
+}
+
+.onboard__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  background: var(--cream-50);
+  border: 1px solid var(--tan-200);
+  border-radius: var(--r-input);
+}
+
+.onboard__icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.onboard__title {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--brown-700);
+}
+
+.onboard__body {
+  font-size: var(--fs-xs);
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+@media (max-width: 480px) {
+  .auth-form__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--s-2);
+  }
+}

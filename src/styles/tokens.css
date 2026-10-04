@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Kapresco design tokens
+   Values extracted directly from the Figma file (key Tn0nyP9sDPCoBdZcDMZPzN).
+   See DESIGN-SYSTEM.md for the full extraction report.
+   ========================================================================== */
+
+:root {
+  /* ---- Brand: coffee browns ---- */
+  --brown-900: #442808;
+  --brown-800: #603809;
+  --brown-700: #693b23; /* primary brand colour — 2665 uses */
+  --brown-600: #875b42;
+  --brown-500: #9a8a80;
+  --espresso: #2b211c;
+
+  /* ---- Accent: gold ---- */
+  --gold-400: #f9c06a; /* primary accent — 886 uses */
+  --gold-500: #ecbd63;
+
+  /* ---- Warm neutrals ---- */
+  --tan-200: #e6cda9; /* borders */
+  --cream-100: #f7e9d7;
+  --cream-50: #fff9f1;
+
+  /* ---- Surfaces ---- */
+  --page: #fffefc;
+  --surface: #ffffff;
+
+  /* ---- Text ---- */
+  --text: var(--brown-700);
+  --text-strong: var(--espresso);
+  --text-muted: #707070;
+
+  /* ---- Status ---- */
+  --error: #b94a3e;
+  --error-bg: #fff2ef;
+  --success: #3f7d54;
+  --success-bg: #f0f7f0;
+  --border-subtle: #ddd5cc;
+
+  /* ---- Radii (from Figma: 999, 24, 20, 12, 10, 8) ---- */
+  --r-pill: 999px;
+  --r-lg: 24px;
+  --r-md: 20px;
+  --r-card: 12px;
+  --r-btn: 10px;
+  --r-input: 8px;
+
+  /* ---- Elevation (exact Figma shadows) ---- */
+  --shadow-card: 0 12px 30px rgba(68, 40, 8, 0.12);
+  --shadow-header: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --shadow-popover: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --shadow-gold: 0 6px 12px rgba(249, 192, 106, 0.22);
+  --shadow-modal: 0 10px 12px rgba(0, 0, 0, 0.34);
+
+  /* ---- Layout ---- */
+  --frame: 1366px;
+  --container: 1166px;
+  --gutter: 100px;
+  --header-h: 72px;
+
+  /* ---- Type scale (sizes from Figma, fluid between 360px and 1366px) ---- */
+  --fs-display: clamp(2.5rem, 1.1rem + 4.4vw, 3.75rem); /* 40 → 60  hero h1 */
+  --fs-cta-title: clamp(2rem, 1rem + 3.2vw, 3.25rem); /* 32 → 52  final CTA */
+  --fs-h2: clamp(1.875rem, 1.1rem + 2.4vw, 2.75rem); /* 30 → 44  section title */
+  --fs-h3: clamp(1.5rem, 1.1rem + 1.2vw, 2rem); /* 24 → 32 */
+  --fs-h4: clamp(1.25rem, 1.05rem + 0.6vw, 1.375rem); /* 20 → 22  card title */
+  --fs-lg: 1.25rem; /* 20 — supporting copy */
+  --fs-quote: clamp(1rem, 0.95rem + 0.25vw, 1.125rem); /* 16 → 18 */
+  --fs-base: 1rem; /* 16 — body / nav / buttons */
+  --fs-md: 0.9375rem; /* 15 */
+  --fs-sm: 0.875rem; /* 14 — most-used */
+  --fs-xs: 0.8125rem; /* 13 */
+  --fs-micro: 0.75rem; /* 12 */
+
+  --lh-tight: 1.05;
+  --lh-snug: 1.2;
+  --lh-normal: 1.5;
+  --lh-body: 1.7;
+
+  /* ---- Spacing (4px base scale) ---- */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-7: 28px;
+  --s-8: 32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+
+  --section-y: clamp(3.5rem, 2rem + 5vw, 5.5rem);
+  --section-pad-x: clamp(1.25rem, 0.5rem + 4vw, 6.25rem); /* 20 → 100 */
+
+  --transition: 180ms ease;
+}
+
+/* Breakpoints used across components (declared for reference):
+   >=1200 desktop · 992–1199 laptop · 768–991 tablet · 480–767 mobile · <480 small */

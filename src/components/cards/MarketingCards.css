@@ -1,0 +1,221 @@
+/* Marketing cards — Feature / Testimonial / Experience / Value */
+
+/* ---- Feature card (Figma 280×250) ---- */
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: var(--s-7);
+  text-align: center;
+  background: var(--page);
+  border: 1px solid var(--tan-200);
+  border-radius: var(--r-card);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.feature-card__icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: var(--shadow-header);
+}
+
+.feature-card__title {
+  font-size: var(--fs-h4);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--brown-700);
+}
+
+.feature-card__description {
+  font-size: var(--fs-md);
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+/* ---- Testimonial card (Figma 374×240) ---- */
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: var(--s-7);
+  background: #fff;
+  border: 1px solid var(--tan-200);
+  border-radius: var(--r-card);
+}
+
+.testimonial-card__quote {
+  font-size: var(--fs-quote);
+  line-height: 1.55;
+  color: var(--text-strong);
+}
+
+.testimonial-card__quote::before {
+  content: "\201C";
+}
+
+.testimonial-card__quote::after {
+  content: "\201D";
+}
+
+.testimonial-card__customer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.testimonial-card__avatar {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--gold-400);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--brown-700);
+}
+
+.testimonial-card__name {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--brown-700);
+}
+
+/* ---- Experience card (Figma 376×310) ---- */
+.experience-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--s-3);
+  aspect-ratio: 376 / 310;
+  padding: 22px;
+  overflow: hidden;
+  border-radius: var(--r-card);
+  isolation: isolate;
+}
+
+.experience-card__image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.experience-card:hover .experience-card__image {
+  transform: scale(1.06);
+}
+
+.experience-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(37, 23, 13, 0.88) 0%, rgba(37, 23, 13, 0.35) 55%, rgba(37, 23, 13, 0.15) 100%);
+}
+
+.experience-card__label {
+  align-self: flex-start;
+  padding: 8px 12px;
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--brown-700);
+  background: rgba(255, 255, 255, 0.91);
+  border-radius: var(--r-pill);
+}
+
+.experience-card__caption {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+}
+
+/* ---- Value card (Figma About Us — 280×324, #FFF9F1, 1px #F9C06A @42%) ---- */
+.value-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-5);
+  min-height: 324px;
+  padding: var(--s-8) 19px;
+  text-align: center;
+  background: var(--cream-50);
+  border: 1px solid rgb(249 192 106 / 0.42);
+}
+
+.value-card__icon {
+  display: grid;
+  place-items: center;
+  line-height: 0;
+}
+
+.value-card__icon img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+.value-card__title {
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--brown-800);
+}
+
+.value-card__description {
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--text-muted);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 480px) {
+  .feature-card {
+    padding: var(--s-5);
+    gap: var(--s-4);
+  }
+  .testimonial-card {
+    padding: var(--s-5);
+  }
+  .experience-card {
+    aspect-ratio: 16 / 11;
+    padding: var(--s-4);
+  }
+  .experience-card__caption {
+    font-size: var(--fs-base);
+  }
+  .value-card {
+    min-height: 0;
+    padding: var(--s-7) var(--s-5);
+  }
+  .value-card__icon img {
+    width: 64px;
+    height: 64px;
+  }
+  .value-card__title {
+    font-size: 22px;
+  }
+  .value-card__description {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+}

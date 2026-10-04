@@ -1,0 +1,92 @@
+/* Login Required Modal — Kapresco design system */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(68, 40, 8, 0.55);
+  backdrop-filter: blur(2px);
+  z-index: 999;
+  animation: fadeIn 180ms ease;
+}
+
+.login-required-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  animation: slideUp 220ms ease;
+}
+
+.login-required-modal__content {
+  width: 100%;
+  max-width: 380px;
+  padding: var(--s-8) var(--s-7);
+  background: #fff;
+  border: 1px solid var(--tan-200);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-modal);
+  text-align: center;
+}
+
+.login-required-modal__icon {
+  display: inline-flex;
+  margin-bottom: var(--s-4);
+}
+
+.login-required-modal__title {
+  margin: 0 0 var(--s-3);
+  font-size: var(--fs-h3);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--brown-700);
+}
+
+.login-required-modal__message {
+  margin: 0 0 var(--s-6);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.login-required-modal__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  margin-bottom: var(--s-4);
+}
+
+.login-required-modal__cancel {
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-required-modal__content {
+    max-width: calc(100% - 32px);
+    padding: var(--s-7) var(--s-5);
+  }
+  .login-required-modal__title {
+    font-size: var(--fs-h4);
+  }
+}

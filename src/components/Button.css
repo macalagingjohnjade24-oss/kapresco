@@ -1,0 +1,131 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: var(--r-pill);
+  border: 1.5px solid transparent;
+  font-weight: 700;
+  font-size: var(--fs-base);
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--md {
+  min-height: 50px;
+  padding-inline: 24px;
+}
+
+.btn--sm {
+  min-height: 40px;
+  padding-inline: 18px;
+  font-size: var(--fs-md);
+}
+
+.btn--lg {
+  min-height: 56px;
+  padding-inline: 30px;
+  font-size: var(--fs-lg);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn__label {
+  display: inline-block;
+}
+
+/* ---- Variants (exact Figma fills) ---- */
+
+.btn--gold {
+  background: var(--gold-400);
+  border-color: var(--gold-400);
+  color: var(--brown-700);
+}
+.btn--gold:hover {
+  background: var(--gold-500);
+  border-color: var(--gold-500);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn--brown {
+  background: var(--brown-700);
+  border-color: var(--brown-700);
+  color: #fff;
+}
+.btn--brown:hover {
+  background: var(--brown-900);
+  border-color: var(--brown-900);
+}
+
+.btn--white {
+  background: #fff;
+  border-color: #fff;
+  color: var(--brown-700);
+}
+.btn--white:hover {
+  background: var(--cream-50);
+  border-color: var(--cream-50);
+}
+
+.btn--outline {
+  background: transparent;
+  border-color: var(--brown-700);
+  color: var(--brown-700);
+}
+.btn--outline:hover {
+  background: var(--brown-700);
+  color: #fff;
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--brown-700);
+}
+.btn--ghost:hover {
+  background: rgba(105, 59, 35, 0.08);
+}
+
+.btn--danger {
+  background: var(--error);
+  border-color: var(--error);
+  color: #fff;
+}
+.btn--danger:hover {
+  background: #a13f34;
+  border-color: #a13f34;
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Full-width buttons shouldn't force awkward tracking on small screens */
+@media (max-width: 380px) {
+  .btn {
+    font-size: var(--fs-sm);
+    padding-inline: 18px;
+  }
+  .btn--md,
+  .btn--lg {
+    min-height: 48px;
+  }
+}

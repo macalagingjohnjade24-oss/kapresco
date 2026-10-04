@@ -1,0 +1,294 @@
+/* Site header — Figma: 1366×72, #FFFFFF @95%, 100px side padding,
+   SPACE_BETWEEN / CENTER, shadow 0 4px 10px rgba(0,0,0,.1) */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-header);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  width: 100%;
+  max-width: var(--frame);
+  min-height: var(--header-h);
+  margin-inline: auto;
+  padding-inline: clamp(20px, 7.3vw, 100px);
+}
+
+/* ---- Brand: Figma 312×50, logo 50×50 + wordmark, gap 10 ---- */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.brand__logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.brand__wordmark {
+  font-size: clamp(15px, 1.1rem + 0.7vw, 27px);
+  line-height: 1.2;
+  letter-spacing: 0.15em;
+  color: var(--brown-700);
+  white-space: nowrap;
+}
+
+/* ---- Nav: Figma gap 28, links Albert Sans 500 16px ---- */
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  position: relative;
+  font-size: var(--fs-base);
+  font-weight: 500;
+  color: var(--brown-700);
+  padding-block: 4px;
+  transition: color var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--gold-500);
+}
+
+.nav-link--active {
+  font-weight: 700;
+  color: var(--gold-500);
+}
+
+/* ---- Actions ---- */
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  flex-shrink: 0;
+}
+
+.auth-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-pill);
+  color: var(--brown-700);
+  transition: background-color var(--transition);
+}
+
+.cart-button:hover {
+  background: rgba(105, 59, 35, 0.08);
+}
+
+.cart-button__count {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  min-width: 18px;
+  height: 18px;
+  padding-inline: 4px;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--brown-700);
+  background: var(--gold-400);
+  border-radius: var(--r-pill);
+}
+
+/* ---- Account dropdown: Figma avatar 38 + identity + chevron + logout ---- */
+
+.account {
+  position: relative;
+}
+
+.account__trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 6px 4px 4px;
+  border-radius: var(--r-pill);
+  transition: background-color var(--transition);
+}
+
+.account__trigger:hover {
+  background: rgba(105, 59, 35, 0.06);
+}
+
+.account__avatar {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--cream-50);
+  border: 1px solid var(--tan-200);
+}
+
+.account__identity {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.15;
+}
+
+.account__name {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--brown-700);
+  white-space: nowrap;
+}
+
+.account__label {
+  font-size: var(--fs-micro);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.account__chevron {
+  transition: transform var(--transition);
+  flex-shrink: 0;
+}
+
+.account__chevron.is-open {
+  transform: rotate(180deg);
+}
+
+.account__menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 224px;
+  padding: var(--s-2);
+  background: var(--surface);
+  border: 1px solid var(--tan-200);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-popover);
+  animation: dropdown-in 160ms ease;
+}
+
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+.account__menu-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--r-input);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--brown-700);
+  text-align: left;
+  transition: background-color var(--transition);
+}
+
+.account__menu-link:hover {
+  background: var(--cream-50);
+}
+
+.account__menu-link--logout {
+  color: var(--error);
+}
+
+.account__menu-divider {
+  display: block;
+  height: 1px;
+  margin: var(--s-2) 0;
+  background: var(--border-subtle);
+}
+
+/* ---- Hamburger (hidden on desktop) ---- */
+
+.hamburger {
+  display: none;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r-input);
+  color: var(--brown-700);
+  transition: background-color var(--transition);
+}
+
+.hamburger:hover {
+  background: rgba(105, 59, 35, 0.08);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1199px) {
+  .brand__wordmark {
+    letter-spacing: 0.12em;
+  }
+  .nav__list {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .nav,
+  .auth-actions,
+  .account {
+    display: none;
+  }
+  .hamburger {
+    display: grid;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand__wordmark {
+    font-size: 14px;
+    letter-spacing: 0.1em;
+  }
+  .brand__logo {
+    width: 42px;
+    height: 42px;
+  }
+  .site-header__inner {
+    min-height: 64px;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand__wordmark {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+  .brand__logo {
+    width: 38px;
+    height: 38px;
+  }
+}
