@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Button from "../components/Button.jsx";
 import Icon from "../components/Icon.jsx";
@@ -32,6 +32,7 @@ export default function Cart() {
   const [checking, setChecking] = useState(false);
 
   const { requireAuth, modalProps } = useAuthGuard();
+  const navigate = useNavigate();
 
   const handlePromo = async (e) => {
     e.preventDefault();
@@ -60,9 +61,10 @@ export default function Cart() {
   };
 
   const handleCheckout = () => {
+    // Guard first: unauthenticated users get the Login Required modal and no
+    // navigation happens. Authenticated users go through the app router.
     requireAuth(() => {
-      // Navigation handled by Link, but we need to intercept
-      window.location.href = "/checkout";
+      navigate("/checkout");
     });
   };
 

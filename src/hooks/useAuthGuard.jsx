@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { useAuth } from "../context/AuthContext.jsx";
 import { useLocation } from "react-router-dom";
 import LoginRequiredModal from "../components/ui/LoginRequiredModal.jsx";
@@ -28,7 +28,11 @@ export function useAuthGuard() {
   const location = useLocation();
 
   const [modalOpen, setModalOpen] = useState(false);
-  const [_pendingAction, setPendingAction] = useState(null);
+  // Held in a ref, not state: passing a function to useState's setter would
+  // make React invoke it as a functional state updater, which executes the
+  // action even though the user is not authenticated. The pending action is
+  // only ever cleared — it must never run on its own.
+  const pendingActionRef = useRef(null);
 
   // The return path to send user back after login/signup
   const returnTo = location.pathname + location.search;
@@ -38,7 +42,7 @@ export function useAuthGuard() {
       if (isAuthenticated) {
         action();
       } else {
-        setPendingAction(action);
+        pendingActionRef.current = action;
         setModalOpen(true);
       }
     },
@@ -47,7 +51,7 @@ export function useAuthGuard() {
 
   const handleModalClose = useCallback(() => {
     setModalOpen(false);
-    setPendingAction(null);
+    pendingActionRef.current = null;
   }, []);
 
   const modalProps = {

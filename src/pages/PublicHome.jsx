@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/Button.jsx";
 import Icon from "../components/Icon.jsx";
 import SectionHeading from "../components/ui/SectionHeading.jsx";
@@ -22,6 +22,7 @@ import "./PublicHome.css";
 
 export default function PublicHome() {
   const { requireAuth, modalProps } = useAuthGuard();
+  const navigate = useNavigate();
   const { products, loading: productsLoading } = useProducts();
   const bestsellers = BESTSELLER_IDS.map((id) => products.find((p) => p.id === id)).filter(Boolean);
 
@@ -43,7 +44,7 @@ export default function PublicHome() {
                 variant="gold"
                 size="lg"
                 type="button"
-                onClick={() => requireAuth(() => window.location.href = HERO.primaryCta.to)}
+                onClick={() => requireAuth(() => navigate(HERO.primaryCta.to))}
               >
                 {HERO.primaryCta.label}
               </Button>
@@ -154,7 +155,7 @@ export default function PublicHome() {
                 variant="gold"
                 size="lg"
                 type="button"
-                onClick={() => requireAuth(() => window.location.href = FINAL_CTA.actions[0].to)}
+                onClick={() => requireAuth(() => navigate(FINAL_CTA.actions[0].to))}
               >
                 {FINAL_CTA.actions[0].label}
               </Button>
@@ -162,7 +163,7 @@ export default function PublicHome() {
                 variant="white"
                 size="lg"
                 type="button"
-                onClick={() => requireAuth(() => window.location.href = FINAL_CTA.actions[1].to)}
+                onClick={() => requireAuth(() => navigate(FINAL_CTA.actions[1].to))}
               >
                 {FINAL_CTA.actions[1].label}
               </Button>

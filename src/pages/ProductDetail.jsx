@@ -91,17 +91,17 @@ export default function ProductDetail() {
           {/* ---- Gallery ---- */}
           <div className="product__gallery">
             <div className="product__image-frame">
-              <img src={product.detailImage ?? product.image} alt={product.name} className="product__image" />
+              <img src={product.image ?? product.detailImage} alt={product.name} className="product__image" />
             </div>
             <div className="product__thumbs">
               <button type="button" className="product__thumb is-active" aria-label={`${product.name} view 1`}>
-                <img src={product.detailImage ?? product.image} alt="" />
+                <img src={product.image ?? product.detailImage} alt="" />
               </button>
               <button type="button" className="product__thumb" aria-label={`${product.name} view 2`}>
                 <img src={product.image} alt="" />
               </button>
               <button type="button" className="product__thumb" aria-label={`${product.name} view 3`}>
-                <img src="/images/set-of-realistic-coffee-cups-with-iced-coffee-in-transparent-background-9c7550e9.png" alt="" />
+                <img src="/images/set-of-realistic-coffee-cups-with-milk-isolated-vector-43419-9c7550e9.png" alt="" />
               </button>
             </div>
           </div>
